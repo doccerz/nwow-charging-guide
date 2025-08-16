@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NWOW Charging Guide (48V)</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#b30000">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      text-align: center;
+      padding: 30px;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      max-width: 400px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    input, button {
+      padding: 10px;
+      margin-top: 10px;
+      width: 80%;
+    }
+    button {
+      background: #b30000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #800000;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>NWOW Charging Guide (48V)</h2>
+    <p>Enter your battery percentage:</p>
+    <input type="number" id="battery" placeholder="e.g. 45" min="0" max="100">
+    <br>
+    <button onclick="checkCharging()">Check Charging Time</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function checkCharging() {
+      const battery = parseInt(document.getElementById("battery").value);
+      let hours = "";
+
+      if (battery >= 95) hours = "Already full (no need to charge)";
+      else if (battery >= 85) hours = "3 Hours";
+      else if (battery >= 80) hours = "3.5 Hours";
+      else if (battery >= 75) hours = "4 Hours";
+      else if (battery >= 70) hours = "4 Hours";
+      else if (battery >= 65) hours = "4.5 Hours";
+      else if (battery >= 60) hours = "4.5 Hours";
+      else if (battery >= 55) hours = "5 Hours";
+      else if (battery >= 50) hours = "5.5 Hours";
+      else if (battery >= 45) hours = "5.5 Hours";
+      else if (battery >= 40) hours = "6 Hours";
+      else if (battery >= 35) hours = "6.5 Hours";
+      else if (battery >= 30) hours = "6.5 Hours";
+      else if (battery >= 25) hours = "7 Hours";
+      else if (battery >= 20) hours = "7.5 Hours";
+      else if (battery >= 15) hours = "8 Hours";
+      else if (battery >= 10) hours = "8.5 Hours";
+      else if (battery >= 5)  hours = "9 Hours";
+      else if (battery >= 0)  hours = "9 Hours";
+
+      if (battery > 100 || battery < 0 || isNaN(battery)) {
+        document.getElementById("result").innerText = "⚠️ Enter a value between 0 and 100.";
+      } else {
+        document.getElementById("result").innerText = `Charging Time: ${hours}`;
+      }
+    }
+
+    // Register Service Worker
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js")
+      .then(() => console.log("Service Worker Registered"));
+    }
+  </script>
+</body>
+</html>
