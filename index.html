@@ -58,25 +58,22 @@
       const battery = parseInt(document.getElementById("battery").value);
       let hours = "";
 
-      if (battery >= 95) hours = "Already full (no need to charge)";
-      else if (battery >= 85) hours = "3 Hours";
-      else if (battery >= 80) hours = "3.5 Hours";
-      else if (battery >= 75) hours = "4 Hours";
-      else if (battery >= 70) hours = "4 Hours";
-      else if (battery >= 65) hours = "4.5 Hours";
-      else if (battery >= 60) hours = "4.5 Hours";
-      else if (battery >= 55) hours = "5 Hours";
-      else if (battery >= 50) hours = "5.5 Hours";
-      else if (battery >= 45) hours = "5.5 Hours";
-      else if (battery >= 40) hours = "6 Hours";
-      else if (battery >= 35) hours = "6.5 Hours";
-      else if (battery >= 30) hours = "6.5 Hours";
-      else if (battery >= 25) hours = "7 Hours";
-      else if (battery >= 20) hours = "7.5 Hours";
-      else if (battery >= 15) hours = "8 Hours";
-      else if (battery >= 10) hours = "8.5 Hours";
-      else if (battery >= 5)  hours = "9 Hours";
-      else if (battery >= 0)  hours = "9 Hours";
+      if (battery >= 53.4 hours = "Already full (no need to charge)";
+      else if (battery >= 52.3) hours = "Almost full (90%-95%; no need to charge)";
+      else if (battery >= 51.6) hours = "3 Hours (85%)";
+      else if (battery >= 50.5) hours = "3.5 Hours (75%-80%)";
+      else if (battery >= 49.9) hours = "4 Hours (70%)";
+      else if (battery >= 48.8) hours = "4.5 Hours (60%-65%)";
+      else if (battery >= 48.2) hours = "5 Hours (55%)";
+      else if (battery >= 47.1) hours = "5.5 Hours (45%)";
+      else if (battery >= 46.5) hours = "6 Hours (40%)";
+      else if (battery >= 45.4) hours = "6.5 Hours (30%-35%)";
+      else if (battery >= 44.8) hours = "7 Hours (25%)";
+      else if (battery >= 44.2) hours = "7.5 Hours (20%)";
+      else if (battery >= 43.7) hours = "8 Hours (15%)";
+      else if (battery >= 43.4) hours = "8.5 Hours (10%)";
+      else if (battery >= 42.0)  hours = "9 Hours (0%-5%)";
+      else hours = "CRITICAL!!! Call service!";
 
       if (battery > 100 || battery < 0 || isNaN(battery)) {
         document.getElementById("result").innerText = "⚠️ Enter a value between 0 and 100.";
@@ -93,4 +90,5 @@
   </script>
 </body>
 </html>
+
 
